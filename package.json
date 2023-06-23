@@ -41,7 +41,7 @@
     "vite-tsconfig-paths": "4.2.0"
   },
   "dependencies": {
-    "@1password/op-js": "^0.1.9",
+    "@tauri-apps/api": "^1.4.0",
     "nostr-tools": "^1.12.0"
   }
 }

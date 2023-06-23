@@ -14,11 +14,15 @@
     "allowlist": {
       "all": false,
       "shell": {
+        "all": true,
+        "execute": true,
         "sidecar": true,
+        "open": true,
         "scope": [
           {
             "name": "op",
-            "sidecar": true
+            "cmd": "op.exe",
+            "args": true
           }
         ]
       }
@@ -66,7 +70,7 @@
       {
         "fullscreen": false,
         "height": 600,
-        "resizable": true,
+        "resizable": false,
         "title": "nostr-chat",
         "width": 800
       }

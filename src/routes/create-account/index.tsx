@@ -1,8 +1,8 @@
 import { component$, $, useSignal } from '@builder.io/qwik';
 import type { DocumentHead } from '@builder.io/qwik-city';
-//import { Link } from '@builder.io/qwik-city';
+import { Link } from '@builder.io/qwik-city';
 import {nip06, getPublicKey} from 'nostr-tools';
-
+import { Command } from '@tauri-apps/api/shell'
 export default component$(() => {
   const publicKey = useSignal("");
   const privKey = useSignal("");
@@ -12,6 +12,10 @@ export default component$(() => {
     publicKey.value=pub;
     privKey.value=priv;
     
+  })
+  const savePriv=$(async()=>{
+    const output = await new Command('op',['signin']).execute();
+    console.log(output)
   })
   return (
     <>
@@ -35,14 +39,17 @@ export default component$(() => {
         disabled        
       />
     </form>
-    <button onClick$={createAccount}  class="mt-4 bg-purple-500 hover:bg-purple-200 text-white px-4 py-2 cursor-pointer rounded">
+    <button onClick$={savePriv}  class="hover:text-black mt-4 bg-purple-500 hover:bg-purple-200 text-white px-4 py-2 cursor-pointer rounded">
       save to 1password
     </button>
     <h1 class="text-3xl font-bold my-4">Create Nostr Account</h1>
-    <button onClick$={createAccount}  class="mt-4 bg-purple-500 hover:bg-purple-200 text-white px-4 py-2 cursor-pointer rounded">
+    <button onClick$={createAccount}  class="hover:text-black mt-4 bg-purple-500 hover:bg-purple-200 text-white px-4 py-2 cursor-pointer rounded">
       Create Public and Private Key
     </button>
-    
+    <Link href="/"  class="hover:text-black mt-4 bg-black hover:bg-gray-200 text-white px-4 py-2 cursor-pointer rounded">
+      Back
+    </Link>
+
     </>
   );
 });
