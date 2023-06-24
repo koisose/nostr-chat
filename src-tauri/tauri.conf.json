@@ -21,7 +21,7 @@
         "scope": [
           {
             "name": "op",
-            "cmd": "op.exe",
+            "cmd": "./bin/op.exe",
             "args": true
           }
         ]
@@ -42,7 +42,7 @@
         "icons/icon.icns",
         "icons/icon.ico"
       ],
-      "identifier": "com.tauri.dev",
+      "identifier": "se.koiso",
       "longDescription": "",
       "macOS": {
         "entitlements": null,
